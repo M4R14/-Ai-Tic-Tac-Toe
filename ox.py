@@ -90,18 +90,15 @@ class ox:
         MaxScore = 0;
         lineMaxScore = [];
         NextIndex = 0;
-
+        text = '';
         for score in self.score:
             for scoreIndex in score['index']:
                 if abs(score['score'])*self.weight[scoreIndex] > MaxScore and score['score'] > -100:
                         MaxScore = abs(score['score'])*self.weight[scoreIndex]
                         lineMaxScore = score;
                         NextIndex = scoreIndex;
-                        print("scoreIndex = ", scoreIndex ,
-                        ", score = ", score['score'],
-                        ", weight=",self.weight[scoreIndex],
-                        ", abs(score)*weight = ", abs(score['score'])*self.weight[scoreIndex]);
-        return NextIndex
+                        text = text + "\n scoreIndex = "+ str(scoreIndex) + ", score = " + str(score['score']) + ", weight=" + str(self.weight[scoreIndex]) + ", abs(score)*weight =" + str(abs(score['score'])*self.weight[scoreIndex]);
+        return NextIndex, text
 
     def printBoard(self):
         t = Texttable()
@@ -117,19 +114,22 @@ if __name__ == '__main__':
     # main()
     test = ox()
     test.printBoard()
-    # pos = 0;
-    # while not pos == 10:
-    #     pos = int(input('O:'))
-    #     if pos > 0 and pos < 10:
-    #         test.add(pos,'O')
-    #         test.printScore()
-    #         test.printWeight()
-    #         print('Next X:',test.NextIndex())
-    #         print('---------------------------------------------------------')
-    #         if(test.NextIndex() == 0):
-    #             exit()
-    #         test.add(test.NextIndex(),'X')
+    pos = 0;
+    while not pos == 10:
+         pos = int(input('O:'))
+         if pos > 0 and pos < 10:
+             test.add(pos,'O')
+             test.printScore()
+             test.printWeight()
+             index, text = test.NextIndex();
+             print(text)
+             print('Next X: ',index)
+             print('---------------------------------------------------------')
+             if(test.NextIndex() == 0):
+                 exit()
+             test.add(index,'X')
 
+    """
     test.add(2,'O')
     test.printScore()
     test.printWeight()
@@ -157,7 +157,8 @@ if __name__ == '__main__':
     test.add(test.NextIndex(),'O')
     test.printScore()
     test.printWeight()
-
+    
     test.add(test.NextIndex(),'X')
     test.printScore()
     test.printWeight()
+    """
