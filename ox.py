@@ -128,37 +128,3 @@ if __name__ == '__main__':
              if(test.NextIndex() == 0):
                  exit()
              test.add(index,'X')
-
-    """
-    test.add(2,'O')
-    test.printScore()
-    test.printWeight()
-
-    test.add(test.NextIndex(),'X')
-    test.printScore()
-    test.printWeight()
-
-    test.add(test.NextIndex(),'O')
-    test.printScore()
-    test.printWeight()
-
-    test.add(test.NextIndex(),'X')
-    test.printScore()
-    test.printWeight()
-
-    test.add(test.NextIndex(),'O')
-    test.printScore()
-    test.printWeight()
-
-    test.add(test.NextIndex(),'X')
-    test.printScore()
-    test.printWeight()
-    
-    test.add(test.NextIndex(),'O')
-    test.printScore()
-    test.printWeight()
-    
-    test.add(test.NextIndex(),'X')
-    test.printScore()
-    test.printWeight()
-    """
